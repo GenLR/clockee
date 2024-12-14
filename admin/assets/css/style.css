@@ -4914,3 +4914,7 @@ blockquote p {
 		margin-bottom: 10px;
 	}
 }
+
+.round {
+	border-radius: 100px;
+}

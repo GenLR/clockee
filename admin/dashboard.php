@@ -10,9 +10,9 @@ include('includes/connection.php');
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4">
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 round">
                         <div class="dash-widget">
-							<span class="dash-widget-bg1"><i class="fa fa-user" aria-hidden="true"></i></span>
+							<span class="dash-widget-bg1"><img src="assets/img/employees.png" alt="employee" width="45px"></i></span>
 							<?php
 							$fetch_query = mysqli_query($connection, "select count(*) as total from tbl_employee where status=1 and role=0"); 
 							$emp = mysqli_fetch_row($fetch_query);
@@ -23,9 +23,9 @@ include('includes/connection.php');
 							</div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4">
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 round">
                         <div class="dash-widget">
-                            <span class="dash-widget-bg2"><i class="fa fa-building-o"></i></span>
+                            <span class="dash-widget-bg2"><img src="assets/img/department.png" alt="department" width="45px"></i></span>
                             <?php
 							$fetch_query = mysqli_query($connection, "select count(*) as total from tbl_department where status=1"); 
 							$dept = mysqli_fetch_row($fetch_query);
@@ -36,9 +36,9 @@ include('includes/connection.php');
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4">
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-4 round">
                         <div class="dash-widget">
-                            <span class="dash-widget-bg3"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                            <span class="dash-widget-bg3"><img src="assets/img/clocky.png" alt="shift" width="45px"></i></span>
                             <?php
 							$fetch_query = mysqli_query($connection, "select count(*) as total from tbl_shift where status=1"); 
 							$shift = mysqli_fetch_row($fetch_query);
@@ -52,33 +52,28 @@ include('includes/connection.php');
                 </div>
 				
 				<div class="row">
-                       <div class="col-12 col-md-6 col-lg-8 col-xl-8">
+                       <div class="col-12 col-md-6 col-lg-8 col-xl-8 round">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title d-inline-block">Employees </h4> <a href="employees.php" class="btn btn-primary float-right">View all</a>
+								<h4 class="card-title d-inline-block">Requests </h4> <a href="employees.php" class="btn btn-primary float-right">View all</a>
 							</div>
 							<div class="card-block">
 								<div class="table-responsive">
 									<table class="table mb-0 new-patient-table">
 										<tbody>
 											<?php 
-											$fetch_query = mysqli_query($connection, "select * from tbl_employee where role=0 limit 5");
+											$fetch_query = mysqli_query($connection, "select * from tbl_leave where status='pending'");
                                         while($row = mysqli_fetch_array($fetch_query))
                                         { ?>
 											<tr>
-												<td>
-													<img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt=""> 
-													<h2><?php echo $row['first_name']." ".$row['last_name']; ?></h2>
-												</td>
-												<td><?php echo $row['emailid']; ?></td>
-												<td><?php echo $row['employee_id']; ?></td>
-                                                
-												<?php if($row['status']=="0") { ?>
-                                            <td><span class="custom-badge status-red">Inactive</span></td>
-                                        <?php } else {?>
-                                            <td><span class="custom-badge status-green">Active</span></td>
-                                        <?php } ?>
-												
+                                                <td><?php echo $row['id']; ?></td>
+                                                <td><?php echo $row['type']; ?></td>
+                                                <td><?php echo $row['date']; ?></td>
+                                                <?php if($row['status']==1) { ?>
+                                                    <td><span class="custom-badge status-green">Approved</span></td>
+                                                <?php } else { ?>
+                                                    <td><span class="custom-badge status-red">Pending</span></td>
+                                                <?php } ?>
 											</tr>
 											<?php } ?>
 										</tbody>
@@ -87,7 +82,7 @@ include('includes/connection.php');
 							</div>
 						</div>
 					</div>
-					  <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+					  <div class="col-12 col-md-6 col-lg-4 col-xl-4 round">
                         <div class="card member-panel">
 							<div class="card-header bg-white">
 								<h4 class="card-title mb-0">Department's Employees</h4>

@@ -17,7 +17,7 @@ $empid = $emp['employee_id'];
 $dept = $emp['department'];
 
 $curr_date = date('Y-m-d');
-date_default_timezone_set('Asia/Kolkata'); 
+date_default_timezone_set('Asia/Manila'); 
 $time = date('Y-m-d H:i:s');
 $intime = "";
 $outtime = "";
@@ -59,7 +59,9 @@ else
       
 
       
-      $insert_query = mysqli_query($connection, "insert into tbl_attendance set employee_id='$emp_id', department='$department', shift='$shift', location='$location', message='$msg', date='$date',  check_in='$check_in', in_status='$in_status'");
+      $insert_query = mysqli_query($connection, "insert into tbl_attendance set employee_id='$emp_id', 
+                                    department='$department', shift='$shift', location='$location', 
+                                    message='$msg', date='$date',  check_in='$check_in', in_status='$in_status'");
 
     }
 ?>
@@ -67,10 +69,8 @@ else
             <div class="content">
                 <div class="row">
                     <div class="col-sm-4 ">
-                        <h4 class="page-title">Attendance Form</h4>
-                         
-                    </div>
-                    
+                        <h4 class="page-title">Attendance</h4>                       
+                    </div>                   
                 </div>
                 <div class="row">
                   <?php
@@ -115,7 +115,7 @@ else
                                
                     </div>
                             <div class="m-t-20 text-center">
-                                <button class="btn btn-primary submit-btn" name="turn-it"><img src="assets/img/login.png" width="40"> Turn It!</button>
+                                <button class="btn btn-primary submit-btn" name="turn-it"> Submit</button>
                             </div>
                         </form>
                     </div>
@@ -138,7 +138,7 @@ else
                    <div class="col-lg-12 offset-lg-2">
                        <div class="row">
                               <div class="col-sm-6">
-                    <center><h3>Thank You For Today</h3></center>
+                    <center><h3>Done with your shift?</h3></center>
                     <form method="post">
                      <div class="m-t-20 text-center">
                       <?php
@@ -148,10 +148,10 @@ else
                       $result = $result['out_status'];
                       if($result=='' || $checkout_status==1){
                       ?>
-                                <button class="btn btn-primary submit-btn" name="check-out" onclick="return confirmDelete()"><img src="assets/img/login.png" width="40">  Check Out!</button>
+                                <button class="btn btn-primary submit-btn" name="check-out" onclick="return confirmDelete()">  Clock out?</button>
                       <?php  } else{?>
-                        <button disabled class="btn btn-primary submit-btn" name="check-out" onclick="return confirmDelete()"><img src="assets/img/login.png" width="40">  Done!</button>
-                        <h5>See you tomorrow!</h5>
+                        <button disabled class="btn btn-primary submit-btn" name="check-out" onclick="return confirmDelete()">  Done for the Day! </button>
+                        <h5>'Till the next Shift!</h5>
                       <?php } ?>
                               
                             </div>

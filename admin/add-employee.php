@@ -8,23 +8,19 @@ include('header.php');
 include('includes/connection.php');
 $fetch_query = mysqli_query($connection, "select max(id) as id from tbl_employee");
       $row = mysqli_fetch_row($fetch_query);
-      if($row[0]==0)
-      {
+      if ($row[0]==0) {
         $emp_id = 1;
-      }
-      else
-      {
+      } else {
         $emp_id = $row[0] + 1;
       }
     
-    if(isset($_REQUEST['add-employee']))
-    {
+    if(isset($_REQUEST['add-employee'])) {
       $first_name = $_REQUEST['first_name'];
       $last_name = $_REQUEST['last_name'];
       $username = $_REQUEST['username'];
       $emailid = $_REQUEST['emailid'];
       $pwd = $_REQUEST['pwd'];
-      $employee_id = 'EMP-'.$emp_id;
+      $employee_id = 'CLK-'.$emp_id;
       $joining_date = $_REQUEST['joining_date'];
       $shift = $_REQUEST['shift'];
       $dob = $_REQUEST['dob'];
@@ -34,14 +30,15 @@ $fetch_query = mysqli_query($connection, "select max(id) as id from tbl_employee
       $status = $_REQUEST['status'];
 
       
-      $insert_query = mysqli_query($connection, "insert into tbl_employee set first_name='$first_name', last_name='$last_name', username='$username', emailid='$emailid', password='$pwd',  dob='$dob', employee_id='$employee_id', joining_date = '$joining_date', gender='$gender', phone='$phone',  shift='$shift', department='$department', status='$status'");
+      $insert_query = mysqli_query($connection, "insert into tbl_employee set first_name='$first_name', 
+                                    last_name='$last_name', username='$username', emailid='$emailid', 
+                                    password='$pwd',  dob='$dob', employee_id='$employee_id', 
+                                    joining_date = '$joining_date', gender='$gender', phone='$phone',  
+                                    shift='$shift', department='$department', status='$status'");
 
-      if($insert_query>0)
-      {
+      if($insert_query>0) {
           $msg = "Employee created successfully";
-      }
-      else
-      {
+      } else {
           $msg = "Error!";
       }
     }
@@ -200,6 +197,8 @@ $fetch_query = mysqli_query($connection, "select max(id) as id from tbl_employee
      <?php
         if(isset($msg)) {
             echo 'swal("' . $msg . '");';
+            sleep(3);
+            header("Location: employees.php");
         }
     ?>
 </script>

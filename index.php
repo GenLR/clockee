@@ -6,7 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Employee Attendance Management System</title>
+    <link rel="icon" href="admin\assets\img\logo.jpg" type="image/x-icon">
+    <title>CLOCKEE</title>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -51,10 +52,11 @@ if(isset($_REQUEST['login']))
     <div class="main-wrapper account-wrapper">
         <div class="account-page">
 			<div class="account-center">
-				<div class="account-box">
+				<div class="account-box shadow">
                     <form method="post" class="form-signin">
 						<div class="account-logo">
-                            <h3>Employee Attendance Management</h3>
+                            <img src="admin/assets/img/logo.jpg" alt="logo" width="50px">
+                            <h3>Welcome To CLOCKIE</h3>
                         </div>
                         <div class="form-group">
                             <label>Username</label>

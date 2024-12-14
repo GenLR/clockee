@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Employee Attendance Management System</title>
+    <link rel="icon" href="admin\assets\img\logo.jpg" type="image/x-icon">
+    <title>CLOCKEE</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
@@ -21,8 +22,8 @@
         <div class="header">
 			<div class="header-left">
 				<a href="#" class="logo">
-					<img class="rounded-circle" src="assets/img/eam-logo.png" width="50" alt="Admin">
-                           <span>E.A.M</span>
+					<img class="rounded-circle" src="admin/assets/img/logo.jpg" width="40" alt="Admin">
+                           <span>CLOCKEE</span>
 				</a>
 			</div>
 			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
@@ -66,11 +67,10 @@
                             <a href="attendance.php"><i class="fa fa-file-o"></i> <span>Attendance Form</span></a>
                         </li>
                         <li>
-                            <a href="leave.php"><i class="fa fa-plane" aria-hidden="true"></i> <span>Leave Form</span></a>
-                        </li>
-                                                				                       
+                            <a href="leave.php"><i class="fa fa-plane"></i> <span>Leave of Absence Form</span></a>
+                        </li>                 				                       
                     </ul>
-                
+                    
                 </div>
             </div>
       </div>
