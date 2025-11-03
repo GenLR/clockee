@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('includes/connection.php');
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +20,6 @@
 		<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
-<?php
-session_start();
-include('includes/connection.php');
 if(isset($_REQUEST['login']))
 {
     $username = mysqli_real_escape_string($connection,$_REQUEST['username']);
