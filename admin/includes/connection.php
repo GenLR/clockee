@@ -1,12 +1,12 @@
 <?php
-$server = "localhost";
-$username = "root";
-$password = "";
-$database = "clockee";
-$connection = mysqli_connect("$server","$username","$password");
-$select_db = mysqli_select_db($connection, $database);
-if(!$select_db)
-{
-	echo("connection terminated");
+$server = "cwsok8k4o4wwkkgso8sg8cwo";
+$username = "mysql";
+$password = "7TdlsNu627p2yfxGIdh7kkk9r793ofcXy2eBs4M29mpPxL4GGsSAqStmqERYmMYw";
+$database = "default";
+
+$connection = mysqli_connect($server, $username, $password, $database);
+
+if (!$connection) {
+    die("Database connection failed: " . mysqli_connect_error());
 }
 ?>
